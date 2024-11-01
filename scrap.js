@@ -3,14 +3,12 @@ const fs = require('fs');
 
 // Configuración de los dominios y la profundidad de rastreo
 const domains = [
-  'https://www.concellodabana.gal/index.php/es/',
-  'https://abegondo.gal/',
-  'https://concellodacapela.es/'
+  'https://www.curtis.gal/index.php/es/'
 ];
 const maxDepth = 2; // Configura la profundidad máxima
 const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b/g;
-const outputFile = 'resultados.txt';
-const csvFile = 'emails.csv';
+const outputFile = './FICHEROS TEMPORALES/RESULTADOS.txt';
+const csvFile = './FICHEROS TEMPORALES/EMAILS.csv';
 
 // Variables constantes de Comunidad y Provincia
 const comunidad = 'Galicia'; // Especifica aquí el valor de comunidad
