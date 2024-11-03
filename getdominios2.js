@@ -4,71 +4,13 @@ const fs = require('fs');
 // Configuración
 const prefix = 'ayuntamiento '; // Prefijo opcional para cada búsqueda
 const searchEntries = [
-'A Estrada',
-'A Guarda',
-'A Illa de Arousa',
-'A Lama',
-'Agolada',
-'Arbo',
-'As Neves',
-'Baiona',
-'Barro',
-'Bueu',
-'Caldas de Reis',
-'Cambados',
-'Campo Lameiro',
-'Cangas',
-'Catoira',
-'Cerdedo',
-'Cotobade',
-'Covelo',
-'Crecente',
-'Cuntis',
-'Dozón',
-'Forcarei',
-'Fornelos de Montes',
-'Gondomar',
-'Lalín',
-'Marín',
-'Meaño',
-'Meis',
-'Moaña',
-'Mondariz',
-'Mondariz-Balneario',
-'Moraña',
-'Mos',
-'Nigrán',
-'O Grove',
-'O Porriño',
-'O Rosal',
-'Oia',
-'Pazos Borbén',
-'Poio',
-'Ponte Caldelas',
-'Ponteareas',
-'Pontecesures',
-'Pontevedra',
-'Portas',
-'Redondela',
-'Ribadumia',
-'Rodeiro',
-'Salceda de Caselas',
-'Salvaterra de Miño',
-'Sanxenxo',
-'Silleda',
-'Soutomaior',
-'Tomiño',
-'Tui',
-'Valga',
-'Vigo',
-'Vila de Cruces',
-'Vilaboa',
-'Vilagarcía de Arousa',
-'Vilanova de Arousa'
+  'A Baña',
+  'Abegondo',
+  'A Capela'
 ]; // Búsquedas
 const searchEngineChoice = 1; // 1 para Google, 2 para Bing, 3 para DuckDuckGo
 const excludedKeywords = ["sede"]; // Palabras clave a excluir en los dominios
-const outputFileName = './FICHEROS TEMPORALES/DOMINIOS.txt'; // Nombre del archivo de salida
+const outputFileName = './FICHEROS TEMPORALES/DOMINIOS.csv'; // Nombre del archivo de salida
 
 async function searchGoogleBingDuck(entries) {
     const browser = await puppeteer.launch();
@@ -162,18 +104,18 @@ async function searchGoogleBingDuck(entries) {
 
                 if (firstResultUrl) {
                     console.log(`Primer resultado para "${searchQuery}" sin palabras clave excluidas: ${firstResultUrl}`);
-                    results[searchQuery] = firstResultUrl;
+                    results[query] = firstResultUrl;
                 } else {
                     console.log(`No se encontró un resultado adecuado para "${searchQuery}"`);
-                    results[searchQuery] = 'No se encontró un resultado adecuado';
+                    results[query] = 'No se encontró un resultado adecuado';
                 }
             } else {
                 console.log(`Campo de búsqueda no encontrado para "${searchQuery}" en ${baseUrl}`);
-                results[searchQuery] = 'Campo de búsqueda no encontrado';
+                results[query] = 'Campo de búsqueda no encontrado';
             }
         } catch (error) {
             console.log(`Error al buscar "${searchQuery}" en ${baseUrl}: ${error.message}`);
-            results[searchQuery] = 'Error en la búsqueda';
+            results[query] = 'Error en la búsqueda';
         }
     }
 
@@ -186,10 +128,16 @@ async function searchGoogleBingDuck(entries) {
     const searchResults = await searchGoogleBingDuck(searchEntries);
 
     console.log("\nResultados:");
-    let output = '';
-    for (const [query, url] of Object.entries(searchResults)) {
-        console.log(`${query}: ${url}`);
-        output += `${query}: ${url}\n`;
+    let output = 'municipio,dominio\n'; // Encabezado del archivo CSV
+    for (const [municipio, url] of Object.entries(searchResults)) {
+        if (url.startsWith('http')) {
+            console.log(`${municipio},${url}`);
+            output += `${municipio},${url}\n`;
+        } else {
+            // Agregar mensaje de error en el CSV
+            console.log(`${municipio},${url}`);
+            output += `${municipio},${url}\n`;
+        }
     }
 
     // Guardar los resultados en un archivo

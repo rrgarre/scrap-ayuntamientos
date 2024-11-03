@@ -3,7 +3,9 @@ const fs = require('fs');
 
 // Configuración de los dominios y la profundidad de rastreo
 const domains = [
-  'https://www.curtis.gal/index.php/es/'
+  'A Baña,https://www.concellodabana.gal/index.php/es/',
+  'Abegondo,https://abegondo.gal/',
+  'A Capela,https://concellodacapela.es/'
 ];
 const maxDepth = 2; // Configura la profundidad máxima
 const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b/g;
@@ -26,11 +28,6 @@ function writeToCSV(line) {
     fs.appendFileSync(csvFile, line + '\n', (err) => {
         if (err) console.error("Error al escribir en el archivo CSV:", err);
     });
-}
-
-// Función para limpiar el dominio y usarlo como municipio
-function formatDomain(domain) {
-    return domain.replace(/^(?:https?:\/\/)?(?:www\.)?/i, '').split('/')[0].replace(/\./g, '');
 }
 
 // Función principal del rastreador
@@ -74,13 +71,13 @@ async function scrapePage(url, domain, depth, visited = new Set()) {
 
 // Función para procesar múltiples dominios
 async function processDomains(domains) {
-    for (const domain of domains) {
-        writeToFile(`Resultados para ${domain}:\n`);
+    for (const entry of domains) {
+        // Separar municipio y dominio del CSV
+        const [municipio, domain] = entry.split(',');
+
+        writeToFile(`Resultados para ${municipio}, ${domain}:\n`);
         console.log(`Iniciando rastreo para el dominio: ${domain}`);
         
-        // Extraer nombre del municipio del dominio
-        const municipio = formatDomain(domain);
-
         try {
             const emails = await scrapePage(domain, domain, 0);
             if (emails.length > 0) {
