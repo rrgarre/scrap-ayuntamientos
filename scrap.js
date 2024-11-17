@@ -1,20 +1,32 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 
-// Configuración de los dominios y la profundidad de rastreo
-const domains = [
-  'A Baña,3.450,https://www.concellodabana.gal/index.php/es/',
-  'A Capela,1.232,https://concellodacapela.es/'
-]; // Formato "municipio,poblacion,dominio"
+// Configuración de archivos
+const inputFile = './FICHEROS ENTRADA/entradaScrap'; // Archivo de entrada
+const outputFile = './FICHEROS SALIDA/RESULTADOS.txt'; // Archivo de texto para los resultados
+const csvFile = './FICHEROS SALIDA/EMAILS.csv'; // Archivo CSV para los resultados
 
+// Configuración de rastreo
 const maxDepth = 2; // Configura la profundidad máxima
 const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b/g;
-const outputFile = './FICHEROS TEMPORALES/RESULTADOS.txt';
-const csvFile = './FICHEROS TEMPORALES/EMAILS.csv';
 
 // Variables constantes de Comunidad y Provincia
 const comunidad = 'Galicia'; // Especifica aquí el valor de comunidad
 const provincia = 'La Coruña'; // Especifica aquí el valor de provincia
+
+// Leer el archivo de entrada
+function readInputFile(filePath) {
+    try {
+        const content = fs.readFileSync(filePath, 'utf8');
+        return content
+            .split('\n')
+            .map(line => line.trim())
+            .filter(line => line !== '' && !line.startsWith('#')); // Ignorar líneas vacías o comentarios
+    } catch (error) {
+        console.error(`Error al leer el archivo de entrada: ${error.message}`);
+        process.exit(1);
+    }
+}
 
 // Función para escribir en el archivo de texto
 function writeToFile(content) {
@@ -39,7 +51,8 @@ async function scrapePage(url, domain, depth, visited = new Set()) {
 
     const emails = new Set();
     const newUrls = new Set();
-    const browser = await puppeteer.launch();
+    // const browser = await puppeteer.launch(); 
+    const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] }); // Para problemas en Linux
     const page = await browser.newPage();
 
     try {
@@ -101,6 +114,7 @@ async function processDomains(domains) {
 
 // Ejecutar el rastreador para múltiples dominios
 (async () => {
+    const domains = readInputFile(inputFile); // Leer dominios desde el archivo
     fs.writeFileSync(outputFile, ''); // Limpiar el archivo de texto al iniciar
     fs.writeFileSync(csvFile, 'comunidad,provincia,municipio,dominio,poblacion,email\n'); // Cabecera del archivo CSV
     await processDomains(domains);
