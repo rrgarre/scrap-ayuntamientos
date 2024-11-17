@@ -3,7 +3,6 @@ Resultados para A Baña, https://www.concellodabana.gal/index.php/es/:
 correo@abana.dicoruna.es
 correo@concellodabana.gal
 su-email@mail.com
-deportes@concellodabana.gal
 xuventude@concellodabana.gal
 monica.tome@concellodabana.gal
 orientacion.laboral@concellodabana.gal
@@ -34,26 +33,6 @@ dpd@concellodabana.gal
 
 ----------------------------------------
 
-Resultados para Abegondo, https://abegondo.gal/:
-
-oficinacl@ve-1030x1030.jpg
-oficinacl@ve-300x300.jpg
-oficinacl@ve-80x80.jpg
-oficinacl@ve-768x768.jpg
-oficinacl@ve-36x36.jpg
-oficinacl@ve-180x180.jpg
-oficinacl@ve-705x705.jpg
-oficinacl@ve.jpg
-cultura@abegondo.gal
-cemit.abegondo@xunta.gal
-contratacion@abegondo.es
-contratacion@abegondo.gal
-alcaldia@abegondo.es
-aula.natureza@abegondo.es
-dpd@abegondo.gal
-
-----------------------------------------
-
 Resultados para A Capela, https://concellodacapela.es/:
 
 concello@concellodacapela.es
@@ -62,6 +41,8 @@ empresas@grupocapela.com
 acapela.coworking@gmail.com
 biblioteca.dacapela@gmail.com
 alcaldia@concellodacapela.es
+info@eventi.es
+produccion@eventi.es
 
 ----------------------------------------
 

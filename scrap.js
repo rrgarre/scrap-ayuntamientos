@@ -3,10 +3,10 @@ const fs = require('fs');
 
 // Configuración de los dominios y la profundidad de rastreo
 const domains = [
-  'A Baña,https://www.concellodabana.gal/index.php/es/',
-  'Abegondo,https://abegondo.gal/',
-  'A Capela,https://concellodacapela.es/'
-];
+  'A Baña,3.450,https://www.concellodabana.gal/index.php/es/',
+  'A Capela,1.232,https://concellodacapela.es/'
+]; // Formato "municipio,poblacion,dominio"
+
 const maxDepth = 2; // Configura la profundidad máxima
 const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b/g;
 const outputFile = './FICHEROS TEMPORALES/RESULTADOS.txt';
@@ -72,8 +72,8 @@ async function scrapePage(url, domain, depth, visited = new Set()) {
 // Función para procesar múltiples dominios
 async function processDomains(domains) {
     for (const entry of domains) {
-        // Separar municipio y dominio del CSV
-        const [municipio, domain] = entry.split(',');
+        // Separar municipio, población y dominio del CSV
+        const [municipio, poblacion, domain] = entry.split(',');
 
         writeToFile(`Resultados para ${municipio}, ${domain}:\n`);
         console.log(`Iniciando rastreo para el dominio: ${domain}`);
@@ -84,7 +84,7 @@ async function processDomains(domains) {
                 emails.forEach(email => {
                     console.log(email);
                     writeToFile(email);
-                    writeToCSV(`${comunidad},${provincia},${municipio},${domain},${email}`);
+                    writeToCSV(`${comunidad},${provincia},${municipio},${domain},${poblacion},${email}`);
                 });
             } else {
                 console.log(`No se encontraron correos electrónicos en ${domain}`);
@@ -102,7 +102,7 @@ async function processDomains(domains) {
 // Ejecutar el rastreador para múltiples dominios
 (async () => {
     fs.writeFileSync(outputFile, ''); // Limpiar el archivo de texto al iniciar
-    fs.writeFileSync(csvFile, 'comunidad,provincia,municipio,dominio,email\n'); // Cabecera del archivo CSV
+    fs.writeFileSync(csvFile, 'comunidad,provincia,municipio,dominio,poblacion,email\n'); // Cabecera del archivo CSV
     await processDomains(domains);
     console.log(`Rastreo completado. Revisa los resultados en ${outputFile} y en ${csvFile}`);
 })();

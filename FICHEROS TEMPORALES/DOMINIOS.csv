@@ -1,4 +1,92 @@
-municipio,dominio
-A Baña,https://www.concellodabana.gal/index.php/es/
-Abegondo,https://abegondo.gal/
-A Capela,https://concellodacapela.es/
+municipio,poblacion,dominio
+A Baña,3.450,https://www.concellodabana.gal/index.php/es/
+A Capela,1.232,https://concellodacapela.es/
+A Coruña,245.711,https://www.coruna.gal/web/es?argIdioma=es
+A Laracha,11.347,https://www.alaracha.gal/
+A Pobra do Caramiñal,9.338,https://apobra.gal/es/inicio-es/
+Abegondo,5.406,https://abegondo.gal/
+Ames,31.793,https://www.concellodeames.gal/
+Aranga,1.849,https://aranga.gal/
+Ares,5.732,https://concellodeares.gal/es/
+Arteixo,32.262,https://arteixo.org/
+Arzúa,6.041,https://arzua.gal/
+As Pontes de García Rodríguez,10.138,https://aspontes.org/
+As Somozas,1.098,https://assomozas.es/
+Bergondo,6.633,https://bergondo.gal/
+Betanzos,12.959,https://betanzos.es/
+Boimorto,1.985,https://www.concellodeboimorto.es/
+Boiro,18.838,https://www.boiro.gal/index.php/es/
+Boqueixón,4.220,https://www.boqueixon.gal/
+Brión,7.837,https://www.concellodebrion.gal/
+Cabana de Bergantiños,4.248,http://www.concello-cabana.es/
+Cabanas,3.281,https://cabanas.gal/
+Camariñas,5.272,https://camarinas.net/
+Cambre,24.648,https://cambre.es/?lang=es
+Cariño,3.838,https://www.concellodecarino.gal/
+Carnota,3.957,https://www.carnota.gal/
+Carral,6.408,https://carral.es/
+Cedeira,6.640,https://cedeira.gal/?lang=es
+Cee (A Coruña),7.546,https://cee.gal/
+Cerdido,1.113,https://www.cerdido.org/
+Coirós,1.824,https://concellocoiros.com/
+Corcubión,1.589,https://www.corcubion.gal/es
+Coristanco,6.074,https://www.coristanco.gal/
+Culleredo,30.402,https://www.culleredo.es/
+Curtis,3.983,https://www.curtis.gal/index.php/es/
+Dodro,2.768,https://www.dodro.gal/
+Dumbría,2.983,https://www.dumbria.com/?lang=es
+Fene,12.944,https://fene.gal/
+Ferrol,66.065,https://www.ferrol.es/
+Fisterra,4.708,https://concellofisterra.gal/
+Frades,2.339,https://frades.gal/
+Irixoa,1.334,https://www.irixoa.es/
+Laxe,3.016,https://www.concellodelaxe.com/
+Lousame,3.338,https://concellodelousame.gal/
+Malpica de Bergantiños,5.391,https://www.concellomalpica.com/es/
+Mazaricos,3.885,http://www.mazaricos.gal/
+Mañón,1.356,http://www.manon.es/
+Mellid,7.406,https://www.concellodemelide.org/
+Mesía,2.530,https://www.concellodemesia.gal/
+Miño,6.200,https://www.concellodemino.gal/es/
+Moeche,1.226,https://moeche.gal/
+Monfero,1.932,https://www.concellodemonfero.com/
+Mugardos,5.245,https://mugardos.gal/es/
+Muros (A Coruña),8.556,https://muros.gal/
+Muxía,4.657,https://concellomuxia.com/es/
+Narón,39.080,https://naron.gal/es
+Neda,5.079,https://neda.gal/
+Negreira,6.827,https://concellodenegreira.gal/
+Noia,14.263,https://concellodenoia.gal/
+O Pino,4.641,https://opino.gal/es/
+Oleiros,36.075,https://www.oleiros.org/
+Ordes,12.674,https://www.concellodeordes.com/
+Oroso,7.500,https://www.oroso.gal/
+Ortigueira,5.671,https://concellodeortigueira.gal/?lang=es
+Outes,6.282,https://www.outes.gal/
+Oza-Cesuras,5.101,https://www.concellodeozacesuras.es/
+Paderne,2.394,http://concellodepaderne.com/
+Padrón,8.384,https://padron.gal/es/
+Ponteceso,5.502,https://www.ponteceso.gal/
+Pontedeume,7.777,https://www.pontedeume.gal/es/
+Porto do Son,9.171,https://portodoson.gal/
+Rianxo,11.033,https://concelloderianxo.gal/
+Ribeira,26.886,https://www.ribeira.gal/
+Rois,4.512,https://www.rois.gal/es/
+Sada,15.841,https://www.sada.gal/
+San Sadurniño,2.822,https://sansadurnino.gal/
+Santa Comba,9.426,https://www.santacomba.es/
+Santiago de Compostela,97.260,https://www.google.com/search?q=ayuntamiento+Santiago+de+Compostela&sca_esv=cd282f0dc90190fb&udm=1&sa=X&ved=2ahUKEwiEkdar4OGJAxUMRvEDHeKXF8sQjGp6BAgfEAE
+Santiso,1.584,https://santiso.gal/
+Sobrado (A Coruña),1.758,https://www.sobrado.es/
+Teo,18.579,https://www.teo.gal/
+Toques,1.124,https://toques.gal/
+Tordoia,3.299,https://www.tordoia.es/es/
+Touro,3.574,https://concellodetouro.com/
+Trazo,3.113,https://www.concellodetrazo.es/
+Val do Dubra,3.876,https://valdodubra.gal/
+Valdoviño,6.563,https://www.concellodevaldovino.com/
+Vedra,5.036,https://www.concellodevedra.es/
+Vilarmaior,1.226,http://concellodevilarmaior.es/
+Vilasantar,1.213,https://vilasantar.gal/
+Vimianzo,7.057,https://www.vimianzo.gal/
+Zas,4.472,https://concellodezas.org/
