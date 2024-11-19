@@ -56,7 +56,7 @@ async function scrapePage(url, domain, depth, visited = new Set()) {
     const page = await browser.newPage();
 
     try {
-        await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 });
+        await page.goto(url, { waitUntil: 'networkidle2', timeout: 6000 });
         const content = await page.content();
         const foundEmails = content.match(emailRegex);
         if (foundEmails) foundEmails.forEach(email => emails.add(email));
